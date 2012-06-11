@@ -1,0 +1,468 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-06-11 18:59+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.conference\n"
+
+#: ../browser/register.py:29
+#: ../session.py:65
+msgid ""
+msgstr ""
+
+#: ../browser/register.py:24
+msgid " to be published in our attendee listing"
+msgstr ""
+
+#: ../session.py:103
+msgid "%s is an invalid email address"
+msgstr ""
+
+#: ../participant.py:102
+msgid "<a href='https://fedorahosted.org/fudcon-planning/wiki/FundingRequest'>FUDCon ticket tracker</a> "
+msgstr ""
+
+#: ../profiles/default/types/collective.conference.conference.xml
+msgid "A conference event"
+msgstr ""
+
+#: ../browser/templates/session_view.pt:36
+msgid "Additional Information"
+msgstr ""
+
+#: ../browser/templates/macros.pt:50
+msgid "Admin"
+msgstr ""
+
+#: ../vocabulary.py:49
+msgid "Advanced"
+msgstr ""
+
+#: ../browser/agenda.py:19
+#: ../browser/templates/macros.pt:26
+msgid "Agenda"
+msgstr ""
+
+#: ../session.py:85
+msgid "Agenda Background Color"
+msgstr ""
+
+#: ../session.py:92
+msgid "Agenda Text Color"
+msgstr ""
+
+#: ../browser/templates/macros.pt:55
+msgid "All Participants"
+msgstr ""
+
+#: ../browser/templates/macros.pt:65
+msgid "All Sessions"
+msgstr ""
+
+#: ../session.py:70
+msgid "Attach your talks document (slide, code, etc). "
+msgstr ""
+
+#: ../session.py:69
+msgid "Attachment"
+msgstr ""
+
+#: ../browser/listings.py:22
+msgid "Attendees listing"
+msgstr ""
+
+#: ../conference.py:41
+msgid "Available Rooms"
+msgstr ""
+
+#: ../vocabulary.py:47
+msgid "Beginner"
+msgstr ""
+
+#: ../browser/templates/participant_view.pt:51
+msgid "Bio:"
+msgstr ""
+
+#: ../session.py:72
+msgid "By uploading the file here, you hereby agreed to "
+msgstr ""
+
+#: ../browser/register.py:23
+msgid "Check this if you wish your name and contact info"
+msgstr ""
+
+#: ../participant.py:101
+msgid "Check this option if you need funding to attend, and <b>visit the "
+msgstr ""
+
+#: ../participant.py:118
+msgid "Comments"
+msgstr ""
+
+#: ../profiles/default/types/collective.conference.conference.xml
+msgid "Conference"
+msgstr ""
+
+#: ../profiles/default/types/collective.conference.participant.xml
+msgid "Conference Participant"
+msgstr ""
+
+#: ../browser/listings.py:78
+#: ../session.py:78
+msgid "Conference Rooms"
+msgstr ""
+
+#: ../profiles/default/types/collective.conference.session.xml
+msgid "Conference Session"
+msgstr ""
+
+#: ../participant.py:69
+msgid "Country"
+msgstr ""
+
+#: ../browser/templates/participant_view.pt:46
+msgid "Country:"
+msgstr ""
+
+#: ../browser/templates/agenda.pt:78
+msgid "Day ${curday}"
+msgstr ""
+
+#: ../vocabulary.py:36
+msgid "Discussion"
+msgstr ""
+
+#: ../session.py:45
+msgid "E-mail addresses of speakers"
+msgstr ""
+
+#: ../browser/templates/attendance_list.pt:35
+msgid "Email"
+msgstr ""
+
+#: ../participant.py:41
+msgid "Email address"
+msgstr ""
+
+#: ../browser/templates/participant_view.pt:32
+msgid "Email:"
+msgstr ""
+
+#: ../participant.py:119
+msgid "Fill in this field with things you need the organizers to know. "
+msgstr ""
+
+#: ../participant.py:38
+msgid "Full name"
+msgstr ""
+
+#: ../participant.py:95
+msgid "Funding"
+msgstr ""
+
+#: ../vocabulary.py:34
+msgid "Hackfest"
+msgstr ""
+
+#: ../browser/templates/attendance_list.pt:26
+msgid "Here you are the attendance sheet"
+msgstr ""
+
+#: ../session.py:71
+msgid "If there are multiple files, include them in a zip "
+msgstr ""
+
+#: ../participant.py:120
+msgid "If you are roomsharing and already have a roommate, "
+msgstr ""
+
+#: ../participant.py:114
+msgid "If you want or need a room, check this option"
+msgstr ""
+
+#: ../vocabulary.py:48
+msgid "Intermediate"
+msgstr ""
+
+#: ../participant.py:148
+msgid "Invalid email address"
+msgstr ""
+
+#: ../vocabulary.py:12
+msgid "L"
+msgstr ""
+
+#: ../browser/listings.py:73
+#: ../session.py:58
+msgid "Level"
+msgstr ""
+
+#: ../conference.py:37
+msgid "Logo"
+msgstr ""
+
+#: ../vocabulary.py:12
+msgid "M"
+msgstr ""
+
+#: ../vocabulary.py:37
+msgid "Meta"
+msgstr ""
+
+#: ../session.py:64
+msgid "More details on proposed session"
+msgstr ""
+
+#: ../browser/templates/attendance_list.pt:34
+msgid "Name"
+msgstr ""
+
+#: ../participant.py:100
+msgid "Need funding"
+msgstr ""
+
+#: ../browser/templates/participant_view.pt:36
+#: ../participant.py:59
+msgid "Organization / Company"
+msgstr ""
+
+#: ../profiles/default/types/collective.conference.participant.xml
+msgid "Participant"
+msgstr ""
+
+#: ../browser/profile_listing.py:14
+#: ../browser/templates/macros.pt:32
+msgid "Participants"
+msgstr ""
+
+#: ../browser/listings.py:110
+#: ../browser/templates/macros.pt:70
+msgid "Pending Sessions"
+msgstr ""
+
+#: ../participant.py:127
+msgid "Person Color Tag"
+msgstr ""
+
+#: ../participant.py:52
+msgid "Phone number"
+msgstr ""
+
+#: ../participant.py:89
+msgid "Photo"
+msgstr ""
+
+#: ../participant.py:139
+msgid "Please upload image smaller than 512KB"
+msgstr ""
+
+#: ../browser/templates/participant_view.pt:41
+#: ../participant.py:64
+msgid "Position / Role in Organization"
+msgstr ""
+
+#: ../browser/templates/session_view.pt:32
+msgid "Presented By"
+msgstr ""
+
+#: ../browser/templates/conference_view.pt:25
+msgid "Propose Session"
+msgstr ""
+
+#: ../browser/propose.py:45
+msgid "Propose a session"
+msgstr ""
+
+#: ../browser/templates/session_listing.pt:41
+msgid "Read more &raquo;"
+msgstr ""
+
+#: ../browser/templates/conference_view.pt:23
+msgid "Register NOW"
+msgstr ""
+
+#: ../browser/register.py:51
+msgid "Register for this event"
+msgstr ""
+
+#: ../participant.py:113
+msgid "Roomshare"
+msgstr ""
+
+#: ../vocabulary.py:12
+msgid "S"
+msgstr ""
+
+#: ../browser/templates/agenda.pt:87
+msgid "Schedule for Day ${curday}"
+msgstr ""
+
+#: ../profiles/default/types/collective.conference.session.xml
+msgid "Session"
+msgstr ""
+
+#: ../session.py:51
+msgid "Session Title"
+msgstr ""
+
+#: ../browser/listings.py:68
+#: ../session.py:54
+msgid "Session Type"
+msgstr ""
+
+#: ../browser/session_listing.py:13
+#: ../browser/templates/macros.pt:30
+#: ../browser/templates/participant_view.pt:63
+msgid "Sessions"
+msgstr ""
+
+#: ../participant.py:46
+msgid "Short Bio"
+msgstr ""
+
+#: ../browser/register.py:22
+msgid "Show me in attendee list"
+msgstr ""
+
+#: ../browser/speaker_listing.py:14
+#: ../browser/templates/macros.pt:28
+msgid "Speakers"
+msgstr ""
+
+#: ../browser/listings.py:89
+msgid "Submitted Sessions"
+msgstr ""
+
+#: ../session.py:52
+msgid "Summary"
+msgstr ""
+
+#: ../browser/templates/session_view.pt:29
+msgid "Summmary"
+msgstr ""
+
+#: ../browser/templates/attendance_list.pt:36
+msgid "T-Shirt Size"
+msgstr ""
+
+#: ../participant.py:83
+msgid "T-shirt size"
+msgstr ""
+
+#: ../vocabulary.py:33
+msgid "Talk"
+msgstr ""
+
+#: ../participant.py:47
+msgid "Tell us more about yourself"
+msgstr ""
+
+#: ../browser/propose.py:60
+msgid "Thank you for your submission."
+msgstr ""
+
+#: ../browser/register.py:74
+msgid "Thank you. You are now registered."
+msgstr ""
+
+#: ../browser/listings.py:64
+msgid "Title"
+msgstr ""
+
+#: ../browser/templates/macros.pt:60
+msgid "Vegetarian Attendees List"
+msgstr ""
+
+#: ../browser/templates/attendance_list.pt:37
+#: ../participant.py:78
+msgid "Vegetarian?"
+msgstr ""
+
+#: ../browser/listings.py:45
+msgid "Vegetarians listing"
+msgstr ""
+
+#: ../participant.py:106
+msgid "We are making arrangements for attendees from other geographic regions to encourage "
+msgstr ""
+
+#: ../participant.py:104
+msgid "We have a limited budget and will work hard to fund as many people as possible. "
+msgstr ""
+
+#: ../session.py:46
+msgid "We will find speakers' profile in the registration "
+msgstr ""
+
+#: ../participant.py:105
+msgid "We'll use these answers to help figure out budgeting for the event. "
+msgstr ""
+
+#: ../participant.py:70
+msgid "Where you are from?"
+msgstr ""
+
+#: ../vocabulary.py:35
+msgid "Workshop"
+msgstr ""
+
+#: ../vocabulary.py:12
+msgid "XL"
+msgstr ""
+
+#: ../vocabulary.py:12
+msgid "XXL"
+msgstr ""
+
+#: ../vocabulary.py:12
+msgid "XXXL"
+msgstr ""
+
+#: ../participant.py:90
+msgid "Your photo or avatar. Recommended size is 150x195"
+msgstr ""
+
+#: ../browser/propose.py:61
+msgid "Your submission is now held for approval and will appear on the "
+msgstr ""
+
+#: ../participant.py:108
+msgid "be given to contributors in Asia Pacific.</b>"
+msgstr ""
+
+#: ../session.py:73
+msgid "grants us permission to redistribute this file"
+msgstr ""
+
+#: ../participant.py:121
+msgid "please mention your roommate's name here"
+msgstr ""
+
+#: ../browser/propose.py:62
+msgid "site once it is approved"
+msgstr ""
+
+#: ../participant.py:107
+msgid "specific initiatives such as future FUDCon events, but <b>preference may otherwise "
+msgstr ""
+
+#: ../participant.py:103
+msgid "to make a funding request</b>. "
+msgstr ""
+
+#: ../session.py:47
+msgid "using these emails. One in each line"
+msgstr ""
+

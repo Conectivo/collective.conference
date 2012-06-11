@@ -1,6 +1,7 @@
 from five import grok
 from collective.conference.session import ISession, Session
 from collective.conference.conference import IConference
+from collective.conference import MessageFactory as _
 from plone.formwidget.captcha import CaptchaFieldWidget
 from plone.formwidget.captcha.validator import CaptchaValidator
 from plone.dexterity.utils import createContentInContainer
@@ -41,7 +42,7 @@ class ProposalForm(form.SchemaAddForm):
     grok.context(IConference)
     grok.require("zope.Public")
     schema = IProposalForm
-    label = u"Propose a session"
+    label = _(u"Propose a session")
 
     def create(self, data):
         obj = Session()
@@ -56,9 +57,10 @@ class ProposalForm(form.SchemaAddForm):
         for k, v in data.items():
             setattr(obj, k, v)
         IStatusMessage(self.request).addStatusMessage(
-        'Thank you for your submission.' +
-        'Your submission is now held for approval and will appear on the ' + 
-        'site once it is approved')
+        _(u"Thank you for your submission.") +
+        _(u"Your submission is now held for approval and will appear on the ") + 
+        _(u"site once it is approved")
+        )
         obj.reindexObject()
         return obj
 

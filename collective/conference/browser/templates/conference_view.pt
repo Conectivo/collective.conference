@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      metal:use-macro="here/main_template/macros/master">
+      metal:use-macro="here/main_template/macros/master"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="collective.conference">
 <head>
    <metal:block fill-slot="style_slot">
       <metal:block use-macro="here/@@collective-conference-macros/macros/styles"/>
@@ -19,9 +21,9 @@
             <h1 tal:content="context/title"></h1>
             <p tal:replace="structure python:text_to_html(context.description)"></p>
             <a class="btn btn-primary btn-large"
-               tal:attributes="href string:${context/absolute_url}/register">Register NOW</a>
+               tal:attributes="href string:${context/absolute_url}/register" i18n:translate="">Register NOW</a>
             <a class="btn btn-primary btn-large"
-               tal:attributes="href string:${context/absolute_url}/propose">Propose Session</a>
+               tal:attributes="href string:${context/absolute_url}/propose" i18n:translate="">Propose Session</a>
 
          </div>
          <div class="span4"

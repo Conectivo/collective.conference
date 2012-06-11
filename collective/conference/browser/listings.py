@@ -2,6 +2,7 @@ from five import grok
 from collective.conference.conference import IConference
 from collective.conference.participant import IParticipant
 from collective.conference.session import ISession
+from collective.conference import MessageFactory as _
 from collective.conference.provider.listing import TableListingProvider
 from plone.directives import form
 from zope import schema
@@ -18,7 +19,7 @@ class AttendeesListingView(grok.View):
     grok.name('participant-list')
     grok.require('cmf.ModifyPortalContent')
 
-    title = 'Attendees listing'
+    title = _(u"Attendees listing")
 
     def provider(self):
         catalog = getToolByName(self.context, 'portal_catalog')
@@ -41,7 +42,7 @@ class VegetarianListingView(grok.View):
     grok.name('vegetarians')
     grok.require('cmf.ModifyPortalContent')
 
-    title = 'Vegetarians listing'
+    title = _(u"Vegetarians listing")
 
     def provider(self):
         catalog = getToolByName(self.context, 'portal_catalog')
@@ -61,21 +62,21 @@ class VegetarianListingView(grok.View):
 class ISessionList(form.Schema):
 
     title = schema.TextLine(
-        title=u'Title'
+        title=_(u"Title"),
     )
 
     session_type = schema.Choice(
-        title=u'Session Type',
+        title=_(u"Session Type"),
         vocabulary="collective.conference.vocabulary.sessiontype"
     )
 
     level = schema.Choice(
-        title=u'Level',
+        title=_(u"Level"),
         vocabulary="collective.conference.vocabulary.sessionlevel"
     )
 
     conference_rooms = schema.List(
-        title=u'Conference Rooms',
+        title=_(u"Conference Rooms"),
         value_type=schema.TextLine()
     )
 
@@ -86,7 +87,7 @@ class SessionListingView(grok.View):
     grok.name('session-list')
     grok.require('cmf.ModifyPortalContent')
 
-    title = u'Submitted Sessions'
+    title = _(u"Submitted Sessions")
 
     def provider(self):
         catalog = getToolByName(self.context, 'portal_catalog')
@@ -107,7 +108,7 @@ class PendingSessionListingView(grok.View):
     grok.name('pending-session-list')
     grok.require('cmf.ModifyPortalContent')
 
-    title = u'Pending Sessions'
+    title = _(u"Pending Sessions")
 
     def provider(self):
         catalog = getToolByName(self.context, 'portal_catalog')

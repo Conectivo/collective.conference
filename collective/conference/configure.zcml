@@ -25,6 +25,8 @@
       directory="profiles/default"
       description="Extension profile for Conference management"
       provides="Products.GenericSetup.interfaces.EXTENSION"
+      i18n:attributes="title label_gs_default; 
+                       description help_gs_default;" 
       />
 
   <!-- -*- extra stuff goes here -*- -->

@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      metal:use-macro="here/main_template/macros/master">
+      metal:use-macro="here/main_template/macros/master"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="collective.conference">
       <head>
 
    <metal:block fill-slot="style_slot">
@@ -21,7 +23,7 @@
          </div>
          <div class="row">
            <div class="span12">
-             <h2>Here you are the attendance sheet</h2>
+             <h2 i18n:translate="">Here you are the attendance sheet</h2>
            </div>
          </div>
       </div>
@@ -29,23 +31,23 @@
            <div class="attendee offset1 span12">
              <table class="table table-condensed table-striped">
                <thead>
-                 <th>Name</th>
-                 <th>Email</th>
-                 <th>T-Shirt Size</th>
-                 <th>Vegetarian?</th>
+                 <th i18n:translate="">Name</th>
+                 <th i18n:translate="">Email</th>
+                 <th i18n:translate="">T-Shirt Size</th>
+                 <th i18n:translate="">Vegetarian?</th>
                </thead>
                <tbody>
                  <tr>
-                   <td>Evil Bin Overlord</td>
-                   <td>evil@overload.com</td>
-                   <td>XXXL</td>
-                   <td>NO</td>
+                   <td><tal:comment replace="nothing">Evil Bin Overlord</tal:comment></td>
+                   <td><tal:comment replace="nothing">evil@overload.com</tal:comment></td>
+                   <td><tal:comment replace="nothing">XXXL</tal:comment></td>
+                   <td><tal:comment replace="nothing">NO</tal:comment></td>
                  </tr>
                  <tr>
-                   <td>Benevolent Bin Overlord</td>
-                   <td>good@overload.com</td>
-                   <td>XXXL</td>
-                   <td>NO</td>
+                   <td><tal:comment replace="nothing">Benevolent Bin Overlord</tal:comment></td>
+                   <td><tal:comment replace="nothing">good@overload.com</tal:comment></td>
+                   <td><tal:comment replace="nothing">XXXL</tal:comment></td>
+                   <td><tal:comment replace="nothing">NO</tal:comment></td>
                  </tr>
                </tbody>
              </table>

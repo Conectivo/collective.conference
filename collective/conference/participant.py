@@ -35,39 +35,39 @@ class IParticipant(form.Schema, IImageScaleTraversable):
     # If you want a model-based interface, edit
     # models/participant.xml to define the content type
     # and add directives here as necessary.
-    title = schema.TextLine(title=u"Full name",
+    title = schema.TextLine(title=_(u"Full name"),
             required=True)
     email = schema.TextLine(
-        title=u"Email address",
+        title=_(u"Email address"),
         required=True,
     )
 
     description = schema.Text(
-        title=u"Short Bio",
-        description=(u"Tell us more about yourself"),
+        title=_(u"Short Bio"),
+        description=(_(u"Tell us more about yourself")),
         required=False,
     )
 
     phone = schema.TextLine(
-        title=u"Phone number",
+        title=_(u"Phone number"),
         required=False
     )
 
 
 
     organization = schema.TextLine(
-        title=u"Organization / Company",
+        title=_(u"Organization / Company"),
         required=False,
     )
 
     position = schema.TextLine(
-        title=u"Position / Role in Organization",
+        title=_(u"Position / Role in Organization"),
         required=False,
     )
 
     country = schema.Choice(
-        title=u"Country",
-        description=u"Where you are from",
+        title=_(u"Country"),
+        description=_(u"Where you are from?"),
         required=False,
         vocabulary="collective.conference.vocabulary.countries"
     )
@@ -75,56 +75,56 @@ class IParticipant(form.Schema, IImageScaleTraversable):
 
 
     is_vegetarian = schema.Bool(
-        title=u"Vegetarian?",
+        title=_(u"Vegetarian?"),
         required=False
     )
 
     tshirt_size = schema.Choice(
-        title=u"T-shirt size",
+        title=_(u"T-shirt size"),
         vocabulary="collective.conference.vocabulary.tshirtsize",
         required=False
     )
 
     photo = NamedBlobImage(
-        title=u"Photo",
-        description=u"Your photo or avatar. Recommended size is 150x195",
+        title=_(u"Photo"),
+        description=_(u"Your photo or avatar. Recommended size is 150x195"),
         required=False
     )
 
     form.fieldset('sponsorship',
-            label=u"Funding",
+            label=_(u"Funding"),
             fields=['need_sponsorship', 'roomshare', 'comment']
     )
 
     need_sponsorship = schema.Bool(
-            title=u'Need funding',
-            description=u'''
-Check this option if you need funding to attend, and <b>visit the <a
-href="https://fedorahosted.org/fudcon-planning/wiki/FundingRequest">FUDCon
-ticket tracker</a> to make a funding request</b>. We have a limited budget and will work
-hard to fund as many people as possible. We'll use these answers to help figure
-out budgeting for the event. We are making arrangements for attendees from other
-geographic regions to encourage specific initiatives such as future FUDCon
-events, but <b>preference may otherwise be given to contributors in Asia
-Pacific.</b>
-            ''', required=False)
+            title=_(u"Need funding"),
+            description=_(u"Check this option if you need funding to attend, and <b>visit the ") + 
+                    _(u"<a href='https://fedorahosted.org/fudcon-planning/wiki/FundingRequest'>FUDCon ticket tracker</a> ") +
+                    _(u"to make a funding request</b>. ") +
+                    _(u"We have a limited budget and will work hard to fund as many people as possible. ") +
+                    _(u"We'll use these answers to help figure out budgeting for the event. ") +
+                    _(u"We are making arrangements for attendees from other geographic regions to encourage ") +
+                    _(u"specific initiatives such as future FUDCon events, but <b>preference may otherwise ") +
+                    _(u"be given to contributors in Asia Pacific.</b>"),
+            required=False
+    )
 
     roomshare = schema.Bool(
-            title=u'Roomshare',
-            description=u'If you want or need a room, check this option',
+            title=_(u"Roomshare"),
+            description=_(u"If you want or need a room, check this option"),
             required=False)
 
     comment = schema.Text(
-        title=u'Comments',
-        description=u'''Fill in this field with things you need the organizers
-        to know. If you are roomsharing and already have a roommate, please
-        mention your roommate's name here''',
+        title=_(u"Comments"),
+        description=_(u"Fill in this field with things you need the organizers to know. ") + 
+                    _(u"If you are roomsharing and already have a roommate, ") + 
+                    _(u"please mention your roommate's name here"),
         required=False
     )
 
     form.widget(color="collective.z3cform.colorpicker.colorpickeralpha.ColorpickerAlphaFieldWidget")
     color = schema.TextLine(
-        title=u'Person Color Tag',
+        title=_(u"Person Color Tag"),
         default=u'cccccc',
         required=False
     )
@@ -136,7 +136,7 @@ Pacific.</b>
 def maxPhotoSize(value):
     if value is not None:
         if value.getSize()/1024 > 512:
-            raise schema.ValidationError(u"Please upload image smaller than 512KB")
+            raise schema.ValidationError(_(u"Please upload image smaller than 512KB"))
 
 
 
@@ -145,7 +145,7 @@ def emailValidator(value):
     try:
         return checkEmailAddress(value)
     except:
-        raise Invalid(u"Invalid email address")
+        raise Invalid(_(u"Invalid email address"))
 
 class Participant(dexterity.Item):
     grok.implements(IParticipant)

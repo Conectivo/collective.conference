@@ -1,6 +1,7 @@
 from five import grok
 from collective.conference.participant import IParticipant, Participant
 from collective.conference.conference import IConference
+from collective.conference import MessageFactory as _
 from plone.formwidget.captcha import CaptchaFieldWidget
 from plone.formwidget.captcha.validator import CaptchaValidator
 from plone.dexterity.utils import createContentInContainer
@@ -18,14 +19,14 @@ from Products.statusmessages.interfaces import IStatusMessage
 class IRegistrationForm(IParticipant):
 
     publishinfo = schema.Bool(
-        title=u"Show me in attendee list",
-        description=u"Check this if you wish your name and contact info" +
-                    " to be published in our attendee listing",
+        title=_(u"Show me in attendee list"),
+        description=_(u"Check this if you wish your name and contact info") +
+                    _(u" to be published in our attendee listing"),
         required=False
     )
 
     form.widget(captcha=CaptchaFieldWidget)
-    captcha = schema.TextLine(title=u"",
+    captcha = schema.TextLine(title=_(u""),
                             required=False)
 
     form.omitted('color')
@@ -47,7 +48,7 @@ class RegistrationForm(form.SchemaAddForm):
     grok.context(IConference)
     grok.require("zope.Public")
     schema = IRegistrationForm
-    label = u"Register for this event"
+    label = _(u"Register for this event")
 
 
     def create(self, data):
@@ -70,7 +71,7 @@ class RegistrationForm(form.SchemaAddForm):
             portal_workflow.doActionFor(obj, 'anon_hide')
         obj.reindexObject()
         IStatusMessage(self.request).addStatusMessage(
-            'Thank you. You are now registered.'
+            _(u"Thank you. You are now registered.")
         )
         return obj
 

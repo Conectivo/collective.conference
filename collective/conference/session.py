@@ -42,52 +42,54 @@ class ISession(form.Schema, IImageScaleTraversable):
     """
 
     form.widget(emails='plone.z3cform.textlines.TextLinesFieldWidget')
-    emails = schema.List(title=u"E-mail addresses of speakers", 
-        description=u"We will find speakers' profile in the registration " +
-                u'using these emails. One in each line', required=True,
-                value_type=schema.TextLine())
-    title = schema.TextLine(title=u"Session Title")
-    description = schema.Text(title=u"Summary", required=True)
+    emails = schema.List(title=_(u"E-mail addresses of speakers"), 
+        description=_(u"We will find speakers' profile in the registration ") +
+                    _(u"using these emails. One in each line"),
+        required=True,
+        value_type=schema.TextLine()
+    )
+    title = schema.TextLine(title=_(u"Session Title"))
+    description = schema.Text(title=_(u"Summary"), required=True)
     session_type = schema.Choice(
-        title=u'Session Type',
+        title=_(u"Session Type"),
         vocabulary="collective.conference.vocabulary.sessiontype"
     )
     level = schema.Choice(
-        title=u'Level',
+        title=_(u"Level"),
         vocabulary="collective.conference.vocabulary.sessionlevel"
     )
 
     form.widget(text="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
     text = schema.Text(
         title=_(u"More details on proposed session"),
-        description=u'',
+        description=_(u""),
         required=False,
     )
 
-    attachment = NamedBlobFile(title=u"Attachment",
-        description=u"Attach your talks document (slide, code, etc). " + 
-                    u"If there are multiple files, include them in a zip " + 
-                    u"By uploading the file here, you hereby agreed to " + 
-                    u"grants us permission to redistribute this file",
+    attachment = NamedBlobFile(title=_(u"Attachment"),
+        description=_(u"Attach your talks document (slide, code, etc). ") + 
+                    _(u"If there are multiple files, include them in a zip ") + 
+                    _(u"By uploading the file here, you hereby agreed to ") + 
+                    _(u"grants us permission to redistribute this file"),
         required=False
     )
 
     conference_rooms = schema.List(
-        title=u'Conference Rooms',
+        title=_(u"Conference Rooms"),
         value_type=schema.Choice(source=possibleRooms),
         required=False
     )
 
     form.widget(color="collective.z3cform.colorpicker.colorpickeralpha.ColorpickerAlphaFieldWidget")
     color = schema.TextLine(
-        title=u'Agenda Background Color',
+        title=_(u"Agenda Background Color"),
         default=u'3366CC',
         required=False
     )
 
     form.widget(textColor="collective.z3cform.colorpicker.colorpickeralpha.ColorpickerAlphaFieldWidget")
     textColor = schema.TextLine(
-        title=u'Agenda Text Color',
+        title=_(u"Agenda Text Color"),
         default=u'ffffff',
         required=False
     )
@@ -98,7 +100,7 @@ def emailsValidator(value):
         try:
             return checkEmailAddress(email)
         except:
-            raise Invalid(u"%s is an invalid email address" % email)
+            raise Invalid(_(u"%s is an invalid email address") % email)
 
 
 

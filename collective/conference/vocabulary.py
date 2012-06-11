@@ -3,11 +3,13 @@ from five import grok
 from zope.schema.interfaces import IVocabularyFactory
 from incf.countryutils import data as countrydata
 
+from collective.conference import MessageFactory as _
+
 class TShirtSize(object):
 
     def __call__(self, context):
         return SimpleVocabulary.fromValues(
-            ['S', 'M', 'L', 'XL', 'XXL', 'XXXL']
+            [_(u"S"), _(u"M"), _(u"L"), _(u"XL"), _(u"XXL"), _(u"XXXL")]
         )
 
 grok.global_utility(TShirtSize, IVocabularyFactory,
@@ -27,12 +29,12 @@ grok.global_utility(Countries, IVocabularyFactory,
 class SessionTypes(object):
 
     def __call__(self, context):
-        return SimpleVocabulary.fromValues([
-            u'Talk',
-            u'Hackfest',
-            u'Workshop',
-            u'Discussion',
-            u'Meta'
+        return SimpleVocabulary([
+            SimpleTerm(value=u"Talk", title=_(u"Talk")),
+            SimpleTerm(value=u"Discussion", title=_(u"Discussion")),
+            SimpleTerm(value=u"Hackfest", title=_(u"Hackfest")),
+            SimpleTerm(value=u"Meta", title=_(u"Meta"))
+            SimpleTerm(value=u"Workshop", title=_(u"Workshop")),
         ])
 
 grok.global_utility(SessionTypes, IVocabularyFactory,
@@ -41,15 +43,12 @@ grok.global_utility(SessionTypes, IVocabularyFactory,
 class SessionLevels(object):
 
     def __call__(self, context):
-        return SimpleVocabulary.fromValues([
-            u'Beginner',
-            u'Intermediate',
-            u'Advanced'
+        return SimpleVocabulary([
+            SimpleTerm(value=u"Beginner", title=_(u"Beginner")),
+            SimpleTerm(value=u"Intermediate", title=_(u"Intermediate")),
+            SimpleTerm(value=u"Advanced", title=_(u"Advanced"))
         ])
 
 grok.global_utility(SessionLevels, IVocabularyFactory,
         name="collective.conference.vocabulary.sessionlevel")
-
-
-
 

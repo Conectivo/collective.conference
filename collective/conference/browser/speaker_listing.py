@@ -1,5 +1,6 @@
 from five import grok
 from collective.conference.conference import IConference
+from collective.conference import MessageFactory as _
 from Products.CMFCore.utils import getToolByName
 
 grok.templatedir('templates')
@@ -10,7 +11,7 @@ class SpeakerListView(grok.View):
     grok.name('speakers')
     grok.require('zope2.View')
 
-    title = u"Speakers"
+    title = _(u"Speakers")
 
     def items(self):
         catalog = getToolByName(self.context, 'portal_catalog')

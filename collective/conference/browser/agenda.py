@@ -1,6 +1,7 @@
 from five import grok
 from collective.conference.conference import IConference
 from collective.conference.session import ISession
+from collective.conference import MessageFactory as _
 from Products.CMFCore.utils import getToolByName
 import json
 from datetime import datetime, timedelta
@@ -15,7 +16,7 @@ class AgendaView(grok.View):
     grok.template('agenda')
     grok.require('zope2.View')
 
-    title = u'Agenda'
+    title = _(u"Agenda")
 
     def days(self):
         result = []

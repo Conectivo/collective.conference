@@ -3,7 +3,7 @@
    string:${view/static}/style.css"/>
 </metal:block>
 
-<metal:block define-macro="navbar">
+<metal:block define-macro="navbar" i18n:domain="collective.conference">
 <div class="row-fluid">
 <div class="navbar span12"
    tal:define="is_editable context/@@plone_context_state/is_editable;
@@ -23,13 +23,13 @@
          <div class="nav-collapse" id="conference-nav">
          <ul class="nav pull-right" style="font-size:13px"> 
             <li class="divider-vertical"></li> 
-            <li><a tal:attributes="href string:${conference/absolute_url}/agenda">Agenda</a></li> 
+            <li><a tal:attributes="href string:${conference/absolute_url}/agenda" i18n:translate="">Agenda</a></li> 
             <li class="divider-vertical"></li> 
-            <li><a tal:attributes="href string:${conference/absolute_url}/speakers">Speakers</a></li> 
+            <li><a tal:attributes="href string:${conference/absolute_url}/speakers" i18n:translate="">Speakers</a></li> 
             <li class="divider-vertical"></li> 
-            <li><a tal:attributes="href string:${conference/absolute_url}/sessions">Sessions</a></li> 
+            <li><a tal:attributes="href string:${conference/absolute_url}/sessions" i18n:translate="">Sessions</a></li> 
             <li class="divider-vertical"></li> 
-            <li><a tal:attributes="href string:${conference/absolute_url}/participants">Participants</a></li> 
+            <li><a tal:attributes="href string:${conference/absolute_url}/participants" i18n:translate="">Participants</a></li> 
             <tal:tabs tal:repeat="tab content_tabs">
                   <li class="divider-vertical"></li>
                   <li tal:define="tid tab/id"
@@ -38,7 +38,7 @@
                         tal:content="tab/name"
                         tal:attributes="href tab/url;
                                   title tab/description|nothing;">
-                  Tab Name
+                  <tal:comment replace="nothing">Tab Name</tal:comment>
                   </a></li>
             </tal:tabs>
 
@@ -47,27 +47,27 @@
             <li class="dropdown"><a href="#"
                   class="dropdown-toggle"
                   data-toggle="dropdown">
-                  <b>Admin </b>
+                  <b i18n:translate="">Admin </b>
                   <b class="caret"></b>
                </a>
                <ul class="dropdown-menu">
                   <li>
-                  <a tal:attributes="href string:${conference/absolute_url}/participant-list">
+                  <a tal:attributes="href string:${conference/absolute_url}/participant-list" i18n:translate="">
                      All Participants
                   </a>
                   </li>
                   <li>
-                  <a tal:attributes="href string:${conference/absolute_url}/vegetarians">
+                  <a tal:attributes="href string:${conference/absolute_url}/vegetarians" i18n:translate="">
                      Vegetarian Attendees List
                   </a>
                   </li>
                   <li>
-                  <a tal:attributes="href string:${conference/absolute_url}/session-list">
+                  <a tal:attributes="href string:${conference/absolute_url}/session-list" i18n:translate="">
                      All Sessions
                   </a>
                   </li>
                   <li>
-                  <a tal:attributes="href string:${conference/absolute_url}/pending-session-list">
+                  <a tal:attributes="href string:${conference/absolute_url}/pending-session-list" i18n:translate="">
                      Pending Sessions
                   </a>
                   </li>
@@ -121,24 +121,24 @@
 <div style="border: 0px solid red; width: auto; float: left;">
    <div style="float: right;cursor: default; background: #1A2846; font-weight: bold; width: auto; padding: 0px; color: white; font-size: 13px; text-transform: uppercase; text-align:center; -moz-box-shadow: 0 1px 3px #272727; -webkit-box-shadow: 0 1px 3px #272727; box-shadow: 0 1px 3px #272727; margin-left: 8px; text-shadow: black 0 1px 1px;">
       <div style="font-size: 22px; padding:6px; background: #294172; margin: 0px;"
-            tal:content="label|default">Date</div>
+            tal:content="label|default" i18n:translate="">Date</div>
       <div style="line-height: 14px; padding: 8px;">
          <div style="display: inline-block; width: 50px; border: 0px red solid;">
-            <div tal:content="month">Nov</div>
-            <div tal:content="date" style="font-size: 28px; font-weight: normal; margin-top: 6px; margin-bottom: 5px;">04</div>
-            <div tal:content="year">2011</div>
+            <div tal:content="month"><tal:comment replace="nothing">Nov</tal:comment></div>
+            <div tal:content="date" style="font-size: 28px; font-weight: normal; margin-top: 6px; margin-bottom: 5px;"><tal:comment replace="nothing">04</tal:comment></div>
+            <div tal:content="year"><tal:comment replace="nothing">2011</tal:comment></div>
          </div>
 
          <div style="display: inline-block; width: 50px; border: 0px red solid;">
-            <div tal:content="startTime">10:00</div>
-            <div style="font-size: 28px; font-weight: normal; margin-top: 6px; margin-bottom: 5px;">To</div>
-            <div tal:content="endTime">11:00</div>
+            <div tal:content="startTime"><tal:comment replace="nothing">10:00</tal:comment></div>
+            <div style="font-size: 28px; font-weight: normal; margin-top: 6px; margin-bottom: 5px;" i18n:translate="">To</div>
+            <div tal:content="endTime"><tal:comment replace="nothing">11:00</tal:comment></div>
          </div>
       </div>
       <tal:c condition="roomName|nothing">
-      <div style="font-size: 22px; padding:6px; background: #294172; margin: 0px;">Room</div>
+      <div style="font-size: 22px; padding:6px; background: #294172; margin: 0px;" i18n:translate="">Room</div>
       <div style="padding-bottom: 6px;">
-         <div style="margin-top: 6px;"><strong tal:content="roomName">Auditorium</strong></div>
+         <div style="margin-top: 6px;"><strong tal:content="roomName"><tal:comment replace="nothing">Auditorium</tal:comment></strong></div>
       </div>
       </tal:c>
    </div>
@@ -165,26 +165,26 @@
 
 <div style="float: left;cursor: default; background: #1A2846; font-weight: bold; width: auto; padding: 0px; color: white; font-size: 13px; text-transform: uppercase; text-align:center; -moz-box-shadow: 0 1px 3px #272727; -webkit-box-shadow: 0 1px 3px #272727; box-shadow: 0 1px 3px #272727; margin-left: 8px; text-shadow: black 0 1px 1px;">
    <div style="font-size: 22px; padding: 6px; background: #294172; margin: 0px;"
-      tal:content="label|default">Date</div>
+      tal:content="label|default"><tal:comment replace="nothing">Date</tal:comment></div>
    <div style="line-height: 14px; padding: 8px;">
       <div style="display: inline-block; width: 50px; border: 0px red solid;">
-         <div tal:content="startMonth">Nov</div>
-         <div style="font-size: 28px; font-weight: normal; margin-top: 6px; margin-bottom: 5px;" tal:content="startDay">04</div>
-         <div tal:content="startYear">2011</div>
-         <div style="border-top: 1px dotted #e2e2e2; padding-top: 3px; margin-top: 4px;" tal:content="startTime">08:00:00</div>
+         <div tal:content="startMonth"><tal:comment replace="nothing">Nov</tal:comment></div>
+         <div style="font-size: 28px; font-weight: normal; margin-top: 6px; margin-bottom: 5px;" tal:content="startDay"><tal:comment replace="nothing">04</tal:comment></div>
+         <div tal:content="startYear"><tal:comment replace="nothing">2011</tal:comment></div>
+         <div style="border-top: 1px dotted #e2e2e2; padding-top: 3px; margin-top: 4px;" tal:content="startTime"><tal:comment replace="nothing">08:00:00</tal:comment></div>
       </div>
-      <div style="display: inline-block; width: 30px; margin-left: 10px; margin-right: 10px; border: 0px red solid; height: 50%; position: relative; top: -30px;">TO</div>
+      <div style="display: inline-block; width: 30px; margin-left: 10px; margin-right: 10px; border: 0px red solid; height: 50%; position: relative; top: -30px;" i18n:translate="">TO</div>
       <div style="display: inline-block; width: 50px; border: 0px red solid;">
-         <div tal:content="endMonth">Nov</div>
-         <div style="font-size: 28px; font-weight: normal; margin-top: 6px; margin-bottom: 5px;" tal:content="endDay">06</div>
-         <div tal:content="endYear">2011</div>
-         <div style="border-top: 1px dotted #e2e2e2; padding-top: 3px; margin-top: 4px;" tal:content="endTime">18:00:00</div>
+         <div tal:content="endMonth"><tal:comment replace="nothing">Nov</tal:comment></div>
+         <div style="font-size: 28px; font-weight: normal; margin-top: 6px; margin-bottom: 5px;" tal:content="endDay"><tal:comment replace="nothing">06</tal:comment></div>
+         <div tal:content="endYear"><tal:comment replace="nothing">2011</tal:comment></div>
+         <div style="border-top: 1px dotted #e2e2e2; padding-top: 3px; margin-top: 4px;" tal:content="endTime"><tal:comment replace="nothing">18:00:00</tal:comment></div>
       </div>
    </div>
       <tal:c condition="roomName|nothing">
-      <div style="font-size: 22px; padding:6px; background: #294172; margin: 0px;">Room</div>
+      <div style="font-size: 22px; padding:6px; background: #294172; margin: 0px;" i18n:translate="">Room</div>
       <div style="padding-bottom: 6px;">
-         <div style="margin-top: 6px;"><strong tal:content="roomName">Auditorium</strong></div>
+         <div style="margin-top: 6px;"><strong tal:content="roomName"><tal:comment replace="nothing">Auditorium</tal:comment></strong></div>
       </div>
       </tal:c>
 

@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      metal:use-macro="here/main_template/macros/master">
+      metal:use-macro="here/main_template/macros/master"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="collective.conference">
       <head>
 
    <metal:block fill-slot="style_slot">
@@ -22,7 +24,7 @@
             <div class="span12">
              <table class="table table-condensed table-striped" tal:replace="structure provider/render">
                <thead>
-                  <th>Name</th>
+                  <th i18n:translate="">Name</th>
                </thead>
                <tbody>
                   <tr>

@@ -1,5 +1,6 @@
 from five import grok
 from collective.conference.conference import IConference
+from collective.conference import MessageFactory as _
 from Products.CMFCore.utils import getToolByName
 
 grok.templatedir('templates')
@@ -9,7 +10,7 @@ class SessionListView(grok.View):
     grok.template('session_listing')
     grok.name('sessions')
 
-    title = u"Sessions"
+    title = _(u"Sessions")
 
     def items(self):
         catalog = getToolByName(self.context, 'portal_catalog')

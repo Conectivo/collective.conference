@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      metal:use-macro="here/main_template/macros/master">
+      metal:use-macro="here/main_template/macros/master"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="collective.conference">
       <head>
 
    <metal:block fill-slot="style_slot">
@@ -18,7 +20,7 @@
        <section id="profile" 
             tal:define="text_to_html nocall:here/@@collective-conference-macros/text_to_html">
        <div class="page-header">
-           <h3 tal:content="context/title">Name</h3>
+           <h3 tal:content="context/title"><tal:comment replace="nothing">Name</tal:comment></h3>
        </div>  
        <div class="row-fluid">
           <div class="span1">&nbsp;</div>
@@ -27,26 +29,26 @@
         </div>
         <div class="span8">
           <dl class="dl-horizontal">
-            <dt>Email:</dt>
-            <dd tal:content="python:(context.email or '').replace('@',' (at) ')">vader@empire.com</dd>
+            <dt i18n:translate="">Email:</dt>
+            <dd tal:content="python:(context.email or '').replace('@',' (at) ')"><tal:comment replace="nothing">vader@empire.com</tal:comment></dd>
 
             <tal:block condition="context/organization">
-            <dt>Organization / Company</dt>
+            <dt i18n:translate="">Organization / Company</dt>
             <dd tal:content="context/organization"></dd>
             </tal:block>
 
             <tal:block condition="context/position">
-            <dt>Position / Role in Organization</dt>
+            <dt i18n:translate="">Position / Role in Organization</dt>
             <dd tal:content="context/position"></dd>
             </tal:block>
 
             <tal:block condition="context/country">
-            <dt>Country:</dt>
-            <dd tal:content="context/country">Tatooine</dd>
+            <dt i18n:translate="">Country:</dt>
+            <dd tal:content="context/country"><tal:comment replace="nothing">Tatooine</tal:comment></dd>
             </tal:block>
 
             <tal:block condition="context/description">
-            <dt>Bio:</dt>
+            <dt i18n:translate="">Bio:</dt>
             <dd><p tal:replace="structure python:text_to_html(context.description)"></p></dd>
             </tal:block>
          </dl>
@@ -58,7 +60,7 @@
                         tal:condition="sessions">
       <div class="row-fluid">
         <div class="page-header">
-          <h3>Sessions</h3>
+          <h3 i18n:translate="">Sessions</h3>
         </div>
         <div class="span1">&nbsp;</div>
         <div class="span11">

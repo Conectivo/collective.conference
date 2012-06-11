@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      metal:use-macro="here/main_template/macros/master">
+      metal:use-macro="here/main_template/macros/master"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="collective.conference">
       <head>
 
    <metal:block fill-slot="style_slot">
@@ -12,7 +14,7 @@
 </head>
 <body>
    <div metal:fill-slot="content-title">
-      <h1 tal:content="view/title">Listing</h1>
+      <h1 tal:content="view/title"><tal:comment replace="nothing">Listing</tal:comment></h1>
    </div>
    <div metal:fill-slot="content-description"></div>
 

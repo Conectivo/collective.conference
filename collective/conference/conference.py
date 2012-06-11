@@ -34,11 +34,11 @@ class IConference(form.Schema, IImageScaleTraversable):
     A conference event
     """
 
-    logo_image = NamedBlobImage(title=u'Logo')
+    logo_image = NamedBlobImage(title=_(u"Logo"))
 
     form.widget(rooms='plone.z3cform.textlines.TextLinesFieldWidget')
     rooms = schema.List(
-        title=u'Available Rooms',
+        title=_(u"Available Rooms"),
         value_type=schema.TextLine()
     )
 
