@@ -27,6 +27,7 @@ from zope.component.hooks import getSite
 from Acquisition import aq_parent
 from collective import dexteritytextindexer
 from collective.dexteritytextindexer.behavior import IDexterityTextIndexer
+
 # Interface class; used to define content-type schema.
 
 class IConference(form.Schema, IImageScaleTraversable):

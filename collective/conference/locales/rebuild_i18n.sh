@@ -1,17 +1,39 @@
 #!/bin/sh
+
 PRODUCTNAME='collective.conference'
 I18NDOMAIN=$PRODUCTNAME
 
+# List of languages
+#LANGUAGES="es fr pt pt-br it"
+LANGUAGES="es"
+
+I18NDUDE=i18ndude
+
+#EXCLUDEPOTPLONEFILE=`find ./content ./Extensions -name "*.*py"; find ../profiles/default/types -name "*.xml"`
+EXCLUDEPOTPLONEFILE=`find ../profiles/default/types -name "*.xml"`
+
 rm ./rebuild_i18n.log
 
-i18ndude=i18ndude
+#[[ ! -f $I18NDUDE ]] && I18NDUDE=i18ndude
+#echo using $I18NDUDE
 
-[[ ! -f $i18ndude ]] && i18ndude=i18ndude
-echo using $i18ndude
+#if test ! -e $I18NDUDE; then
+#        echo "You must install i18ndude with buildout"
+#        echo "See https://github.com/collective/collective.developermanual/tree/master/source/i18n/localization.txt"
+#        exit
+#fi
 
-# List of languages
-#LANGUAGES="th ko hi uk id mt fr lv gl vi hr af ru ca zh tr sk sr pt it es lt de mk be fi zh-tw sw is nl bg no da et sv ja pt-br cy hu ga cs sq ro pl"
-LANGUAGES="es"
+#
+# Do we need to merge manual PO entries from a file called manual.pot.
+# this option is later passed to i18ndude
+#
+if test -e ../locales/manual.pot; then
+        echo "Manual PO entries detected"
+        MERGE="--merge ../locales/manual.pot"
+else
+        echo "No manual PO entries detected"
+        MERGE=""
+fi
 
 # Create locales folder structure for languages
 #install -d locales
@@ -21,14 +43,20 @@ for lang in $LANGUAGES; do
 done
 
 # Synchronise the .pot with the templates.
-$i18ndude rebuild-pot --pot ./${PRODUCTNAME}.pot --create ${I18NDOMAIN} ../
+$I18NDUDE rebuild-pot --pot ./${PRODUCTNAME}.pot $MERGE --create ${I18NDOMAIN} ../
 
 # Synchronise the resulting .pot with the .po files
-$i18ndude sync --pot ./${PRODUCTNAME}.pot ./*/LC_MESSAGES/${PRODUCTNAME}.po
+$I18NDUDE sync --pot ./${PRODUCTNAME}.pot ./*/LC_MESSAGES/${PRODUCTNAME}.po
 
-WARNINGS=`find ../ -name "*pt" | xargs i18ndude find-untranslated | grep -e '^-WARN' | wc -l`
-ERRORS=`find ../ -name "*pt" | xargs i18ndude find-untranslated | grep -e '^-ERROR' | wc -l`
-FATAL=`find ../ -name "*pt"  | xargs i18ndude find-untranslated | grep -e '^-FATAL' | wc -l`
+# Synchronise the .pot with the templates.
+$I18NDUDE rebuild-pot --pot ./plone.pot --create plone ../profiles/default/workflows --exclude=$EXCLUDEPOTPLONEFILE
+
+# Synchronise the resulting .pot with the .po files
+#$I18NDUDE sync --pot ./plone.pot ./*/LC_MESSAGES/plone.po
+
+WARNINGS=`find ../ -name "*pt" | xargs $I18NDUDE find-untranslated | grep -e '^-WARN' | wc -l`
+ERRORS=`find ../ -name "*pt" | xargs $I18NDUDE find-untranslated | grep -e '^-ERROR' | wc -l`
+FATAL=`find ../ -name "*pt"  | xargs $I18NDUDE find-untranslated | grep -e '^-FATAL' | wc -l`
 
 echo
 echo "There are $WARNINGS warnings (possibly missing i18n markup)"
@@ -39,4 +67,4 @@ echo "Look the rebuild i18n log generate for this script called \'rebuild_i18n.l
 
 touch ./rebuild_i18n.log
 
-find ../ -name "*pt" | xargs $i18ndude find-untranslated > ./rebuild_i18n.log
+find ../ -name "*pt" | xargs $I18NDUDE find-untranslated > ./rebuild_i18n.log

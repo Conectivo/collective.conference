@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-06-11 18:59+0000\n"
+"POT-Creation-Date: 2012-06-18 20:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,21 +17,13 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.conference\n"
 
-#: ../browser/register.py:29
-#: ../session.py:65
+#: ../browser/register.py:28
+#: ../session.py:59
 msgid ""
 msgstr ""
 
-#: ../browser/register.py:24
-msgid " to be published in our attendee listing"
-msgstr ""
-
-#: ../session.py:103
+#: ../session.py:94
 msgid "%s is an invalid email address"
-msgstr ""
-
-#: ../participant.py:102
-msgid "<a href='https://fedorahosted.org/fudcon-planning/wiki/FundingRequest'>FUDCon ticket tracker</a> "
 msgstr ""
 
 #: ../profiles/default/types/collective.conference.conference.xml
@@ -55,11 +47,11 @@ msgstr ""
 msgid "Agenda"
 msgstr ""
 
-#: ../session.py:85
+#: ../session.py:76
 msgid "Agenda Background Color"
 msgstr ""
 
-#: ../session.py:92
+#: ../session.py:83
 msgid "Agenda Text Color"
 msgstr ""
 
@@ -71,11 +63,11 @@ msgstr ""
 msgid "All Sessions"
 msgstr ""
 
-#: ../session.py:70
-msgid "Attach your talks document (slide, code, etc). "
+#: ../session.py:64
+msgid "Attach your talks document (slide, code, etc). If there are multiple files, include them in a zip by uploading the file here, you hereby agreed to grants us permission to redistribute this file"
 msgstr ""
 
-#: ../session.py:69
+#: ../session.py:63
 msgid "Attachment"
 msgstr ""
 
@@ -83,7 +75,7 @@ msgstr ""
 msgid "Attendees listing"
 msgstr ""
 
-#: ../conference.py:41
+#: ../conference.py:42
 msgid "Available Rooms"
 msgstr ""
 
@@ -95,19 +87,15 @@ msgstr ""
 msgid "Bio:"
 msgstr ""
 
-#: ../session.py:72
-msgid "By uploading the file here, you hereby agreed to "
-msgstr ""
-
 #: ../browser/register.py:23
-msgid "Check this if you wish your name and contact info"
+msgid "Check this if you wish your name and contact info to be published in our attendee listing"
 msgstr ""
 
-#: ../participant.py:101
-msgid "Check this option if you need funding to attend, and <b>visit the "
+#: ../participant.py:98
+msgid "Check this option if you need funding to attend, and <b>visit the <a href='https://fedorahosted.org/fudcon-planning/wiki/FundingRequest'>FUDCon ticket tracker</a> to make a funding request</b>. We have a limited budget and will work hard to fund as many people as possible. We'll use these answers to help figure out budgeting for the event. We are making arrangements for attendees from other geographic regions to encourage specific initiatives such as future FUDCon events, but <b>preference may otherwise be given to contributors in Asia Pacific.</b>"
 msgstr ""
 
-#: ../participant.py:118
+#: ../participant.py:108
 msgid "Comments"
 msgstr ""
 
@@ -119,8 +107,8 @@ msgstr ""
 msgid "Conference Participant"
 msgstr ""
 
-#: ../browser/listings.py:78
-#: ../session.py:78
+#: ../browser/listings.py:79
+#: ../session.py:69
 msgid "Conference Rooms"
 msgstr ""
 
@@ -128,7 +116,11 @@ msgstr ""
 msgid "Conference Session"
 msgstr ""
 
-#: ../participant.py:69
+#: configure.zcml
+msgid "Conference management"
+msgstr ""
+
+#: ../participant.py:68
 msgid "Country"
 msgstr ""
 
@@ -136,15 +128,15 @@ msgstr ""
 msgid "Country:"
 msgstr ""
 
-#: ../browser/templates/agenda.pt:78
+#: ../browser/templates/agenda.pt:72
 msgid "Day ${curday}"
 msgstr ""
 
-#: ../vocabulary.py:36
+#: ../vocabulary.py:34
 msgid "Discussion"
 msgstr ""
 
-#: ../session.py:45
+#: ../session.py:40
 msgid "E-mail addresses of speakers"
 msgstr ""
 
@@ -152,7 +144,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: ../participant.py:41
+#: ../participant.py:42
 msgid "Email address"
 msgstr ""
 
@@ -160,19 +152,23 @@ msgstr ""
 msgid "Email:"
 msgstr ""
 
-#: ../participant.py:119
-msgid "Fill in this field with things you need the organizers to know. "
+#: configure.zcml
+msgid "Extension profile for Conference management"
+msgstr ""
+
+#: ../participant.py:109
+msgid "Fill in this field with things you need the organizers to know. If you are roomsharing and already have a roommate, please mention your roommate's name here"
 msgstr ""
 
 #: ../participant.py:38
 msgid "Full name"
 msgstr ""
 
-#: ../participant.py:95
+#: ../participant.py:92
 msgid "Funding"
 msgstr ""
 
-#: ../vocabulary.py:34
+#: ../vocabulary.py:35
 msgid "Hackfest"
 msgstr ""
 
@@ -180,15 +176,7 @@ msgstr ""
 msgid "Here you are the attendance sheet"
 msgstr ""
 
-#: ../session.py:71
-msgid "If there are multiple files, include them in a zip "
-msgstr ""
-
-#: ../participant.py:120
-msgid "If you are roomsharing and already have a roommate, "
-msgstr ""
-
-#: ../participant.py:114
+#: ../participant.py:104
 msgid "If you want or need a room, check this option"
 msgstr ""
 
@@ -196,7 +184,7 @@ msgstr ""
 msgid "Intermediate"
 msgstr ""
 
-#: ../participant.py:148
+#: ../participant.py:131
 msgid "Invalid email address"
 msgstr ""
 
@@ -204,12 +192,12 @@ msgstr ""
 msgid "L"
 msgstr ""
 
-#: ../browser/listings.py:73
-#: ../session.py:58
+#: ../browser/listings.py:74
+#: ../session.py:52
 msgid "Level"
 msgstr ""
 
-#: ../conference.py:37
+#: ../conference.py:38
 msgid "Logo"
 msgstr ""
 
@@ -217,11 +205,11 @@ msgstr ""
 msgid "M"
 msgstr ""
 
-#: ../vocabulary.py:37
+#: ../vocabulary.py:36
 msgid "Meta"
 msgstr ""
 
-#: ../session.py:64
+#: ../session.py:58
 msgid "More details on proposed session"
 msgstr ""
 
@@ -229,12 +217,12 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: ../participant.py:100
+#: ../participant.py:97
 msgid "Need funding"
 msgstr ""
 
 #: ../browser/templates/participant_view.pt:36
-#: ../participant.py:59
+#: ../participant.py:58
 msgid "Organization / Company"
 msgstr ""
 
@@ -247,29 +235,29 @@ msgstr ""
 msgid "Participants"
 msgstr ""
 
-#: ../browser/listings.py:110
+#: ../browser/listings.py:111
 #: ../browser/templates/macros.pt:70
 msgid "Pending Sessions"
 msgstr ""
 
-#: ../participant.py:127
+#: ../participant.py:115
 msgid "Person Color Tag"
 msgstr ""
 
-#: ../participant.py:52
+#: ../participant.py:53
 msgid "Phone number"
 msgstr ""
 
-#: ../participant.py:89
+#: ../participant.py:86
 msgid "Photo"
 msgstr ""
 
-#: ../participant.py:139
+#: ../participant.py:124
 msgid "Please upload image smaller than 512KB"
 msgstr ""
 
 #: ../browser/templates/participant_view.pt:41
-#: ../participant.py:64
+#: ../participant.py:63
 msgid "Position / Role in Organization"
 msgstr ""
 
@@ -293,11 +281,15 @@ msgstr ""
 msgid "Register NOW"
 msgstr ""
 
-#: ../browser/register.py:51
+#: ../browser/register.py:50
 msgid "Register for this event"
 msgstr ""
 
-#: ../participant.py:113
+#: ../browser/templates/macros.pt:139
+msgid "Room"
+msgstr ""
+
+#: ../participant.py:103
 msgid "Roomshare"
 msgstr ""
 
@@ -305,7 +297,7 @@ msgstr ""
 msgid "S"
 msgstr ""
 
-#: ../browser/templates/agenda.pt:87
+#: ../browser/templates/agenda.pt:81
 msgid "Schedule for Day ${curday}"
 msgstr ""
 
@@ -313,12 +305,12 @@ msgstr ""
 msgid "Session"
 msgstr ""
 
-#: ../session.py:51
+#: ../session.py:45
 msgid "Session Title"
 msgstr ""
 
-#: ../browser/listings.py:68
-#: ../session.py:54
+#: ../browser/listings.py:69
+#: ../session.py:48
 msgid "Session Type"
 msgstr ""
 
@@ -328,7 +320,7 @@ msgstr ""
 msgid "Sessions"
 msgstr ""
 
-#: ../participant.py:46
+#: ../participant.py:47
 msgid "Short Bio"
 msgstr ""
 
@@ -341,11 +333,11 @@ msgstr ""
 msgid "Speakers"
 msgstr ""
 
-#: ../browser/listings.py:89
+#: ../browser/listings.py:90
 msgid "Submitted Sessions"
 msgstr ""
 
-#: ../session.py:52
+#: ../session.py:46
 msgid "Summary"
 msgstr ""
 
@@ -357,28 +349,36 @@ msgstr ""
 msgid "T-Shirt Size"
 msgstr ""
 
-#: ../participant.py:83
+#: ../participant.py:80
 msgid "T-shirt size"
+msgstr ""
+
+#: ../browser/templates/macros.pt:176
+msgid "TO"
 msgstr ""
 
 #: ../vocabulary.py:33
 msgid "Talk"
 msgstr ""
 
-#: ../participant.py:47
+#: ../participant.py:48
 msgid "Tell us more about yourself"
 msgstr ""
 
 #: ../browser/propose.py:60
-msgid "Thank you for your submission."
+msgid "Thank you for your submission. Your submission is now held for approval and will appear on the site once it is approved"
 msgstr ""
 
-#: ../browser/register.py:74
+#: ../browser/register.py:73
 msgid "Thank you. You are now registered."
 msgstr ""
 
-#: ../browser/listings.py:64
+#: ../browser/listings.py:65
 msgid "Title"
+msgstr ""
+
+#: ../browser/templates/macros.pt:134
+msgid "To"
 msgstr ""
 
 #: ../browser/templates/macros.pt:60
@@ -386,7 +386,7 @@ msgid "Vegetarian Attendees List"
 msgstr ""
 
 #: ../browser/templates/attendance_list.pt:37
-#: ../participant.py:78
+#: ../participant.py:75
 msgid "Vegetarian?"
 msgstr ""
 
@@ -394,27 +394,15 @@ msgstr ""
 msgid "Vegetarians listing"
 msgstr ""
 
-#: ../participant.py:106
-msgid "We are making arrangements for attendees from other geographic regions to encourage "
+#: ../session.py:41
+msgid "We will find speakers' profile in the registration using these emails. One in each line"
 msgstr ""
 
-#: ../participant.py:104
-msgid "We have a limited budget and will work hard to fund as many people as possible. "
-msgstr ""
-
-#: ../session.py:46
-msgid "We will find speakers' profile in the registration "
-msgstr ""
-
-#: ../participant.py:105
-msgid "We'll use these answers to help figure out budgeting for the event. "
-msgstr ""
-
-#: ../participant.py:70
+#: ../participant.py:69
 msgid "Where you are from?"
 msgstr ""
 
-#: ../vocabulary.py:35
+#: ../vocabulary.py:37
 msgid "Workshop"
 msgstr ""
 
@@ -430,39 +418,7 @@ msgstr ""
 msgid "XXXL"
 msgstr ""
 
-#: ../participant.py:90
+#: ../participant.py:87
 msgid "Your photo or avatar. Recommended size is 150x195"
-msgstr ""
-
-#: ../browser/propose.py:61
-msgid "Your submission is now held for approval and will appear on the "
-msgstr ""
-
-#: ../participant.py:108
-msgid "be given to contributors in Asia Pacific.</b>"
-msgstr ""
-
-#: ../session.py:73
-msgid "grants us permission to redistribute this file"
-msgstr ""
-
-#: ../participant.py:121
-msgid "please mention your roommate's name here"
-msgstr ""
-
-#: ../browser/propose.py:62
-msgid "site once it is approved"
-msgstr ""
-
-#: ../participant.py:107
-msgid "specific initiatives such as future FUDCon events, but <b>preference may otherwise "
-msgstr ""
-
-#: ../participant.py:103
-msgid "to make a funding request</b>. "
-msgstr ""
-
-#: ../session.py:47
-msgid "using these emails. One in each line"
 msgstr ""
 

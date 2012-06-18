@@ -33,7 +33,7 @@ class SessionTypes(object):
             SimpleTerm(value=u"Talk", title=_(u"Talk")),
             SimpleTerm(value=u"Discussion", title=_(u"Discussion")),
             SimpleTerm(value=u"Hackfest", title=_(u"Hackfest")),
-            SimpleTerm(value=u"Meta", title=_(u"Meta"))
+            SimpleTerm(value=u"Meta", title=_(u"Meta")),
             SimpleTerm(value=u"Workshop", title=_(u"Workshop")),
         ])
 

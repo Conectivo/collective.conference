@@ -3,3 +3,4 @@ The <packagename>.po file containing language-specific translations for your pro
 For more information on internationalization and the difference between the i18n directory and this locales directory, read here:
 
 http://maurits.vanrees.org/weblog/archive/2007/09/i18n-locales-and-plone-3.0
+http://maurits.vanrees.org/weblog/archive/2010/10/i18n-plone-4

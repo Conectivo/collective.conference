@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<object name="collective.conference.conference"
-   meta_type="Dexterity FTI"
-   i18n:domain="collective.conference" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+<object name="collective.conference.conference" meta_type="Dexterity FTI"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+   i18n:domain="collective.conference">
 
   <!-- Basic metadata -->
   <property name="title" i18n:translate="">Conference</property>
-  <property name="description"
-    i18n:translate="">A conference event</property>
+  <property name="description" i18n:translate="">A conference event</property>
   <property name="icon_expr">string:${portal_url}/event_icon.png</property>
   <property name="factory">collective.conference.conference</property>
   <property name="global_allow">True</property>

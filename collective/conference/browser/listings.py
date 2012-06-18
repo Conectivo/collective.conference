@@ -60,7 +60,7 @@ class VegetarianListingView(grok.View):
 
 
 class ISessionList(form.Schema):
-
+    
     title = schema.TextLine(
         title=_(u"Title"),
     )

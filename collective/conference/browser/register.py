@@ -20,8 +20,7 @@ class IRegistrationForm(IParticipant):
 
     publishinfo = schema.Bool(
         title=_(u"Show me in attendee list"),
-        description=_(u"Check this if you wish your name and contact info") +
-                    _(u" to be published in our attendee listing"),
+        description=_(u"Check this if you wish your name and contact info to be published in our attendee listing"),
         required=False
     )
 

@@ -1,9 +1,19 @@
 <?xml version="1.0"?>
-<dc-workflow workflow_id="conference_session_workflow" title="Conference Participant Workflow" description="" state_variable="review_state" initial_state="pending" manager_bypass="False">
+<dc-workflow xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+   i18n:domain="plone"
+   workflow_id="conference_session_workflow"
+   title="Conference Participant Workflow"
+   description=""
+   state_variable="review_state"
+   initial_state="pending"
+   manager_bypass="False"
+   i18n:attributes="title; description">
+   
  <permission>Access contents information</permission>
  <permission>Modify portal content</permission>
  <permission>Reply to item</permission>
  <permission>View</permission>
+ 
  <state state_id="pending" title="Pending">
   <description>Submitted, pending review.</description>
   <exit-transition transition_id="accept"/>
@@ -25,6 +35,7 @@
    <permission-role>Reviewer</permission-role>
   </permission-map>
  </state>
+ 
  <state state_id="published" title="Published">
   <description>Visible to everyone, non-editable.</description>
   <exit-transition transition_id="retract"/>
@@ -40,25 +51,52 @@
    <permission-role>Anonymous</permission-role>
   </permission-map>
  </state>
- <state state_id="visible" title="Tentative">
+ 
+ <state state_id="visible" title="Tentative" i18n:attributes="title">
+  <description i18n:translate="">Submitted, pending approval</description>
   <exit-transition transition_id="publish"/>
   <exit-transition transition_id="retract"/>
  </state>
- <transition transition_id="accept" title="Approve" new_state="visible" trigger="USER" before_script="" after_script="">
-  <action url="%(content_url)s/content_status_modify?workflow_action=accept" category="workflow" icon="">Approve submission</action>
+ 
+ <transition transition_id="accept"
+             title="Approve"
+             new_state="visible"
+             trigger="USER"
+             before_script=""
+             after_script=""
+             i18n:attributes="title">
+  <action url="%(content_url)s/content_status_modify?workflow_action=accept" 
+          category="workflow" icon="" i18n:translate="">Approve submission</action>
   <guard>
   </guard>
  </transition>
- <transition transition_id="publish" title="Confirm submission" new_state="published" trigger="USER" before_script="" after_script="">
-  <action url="%(content_url)s/content_status_modify?workflow_action=publish" category="workflow" icon="">Confirm submission</action>
+ 
+ <transition transition_id="publish"
+             title="Confirm submission"
+             new_state="published"
+             trigger="USER"
+             before_script=""
+             after_script=""
+             i18n:attributes="title">
+  <action url="%(content_url)s/content_status_modify?workflow_action=publish" 
+          category="workflow" icon="" i18n:translate="">Confirm submission</action>
   <guard>
   </guard>
  </transition>
- <transition transition_id="retract" title="Retract" new_state="pending" trigger="USER" before_script="" after_script="">
-  <action url="%(content_url)s/content_status_modify?workflow_action=retract" category="workflow" icon="">Retract submission</action>
+ 
+ <transition transition_id="retract"
+             title="Retract"
+             new_state="pending"
+             trigger="USER"
+             before_script=""
+             after_script=""
+             i18n:attributes="title">
+  <action url="%(content_url)s/content_status_modify?workflow_action=retract" 
+          category="workflow" icon="" i18n:translate="">Retract submission</action>
   <guard>
   </guard>
  </transition>
+ 
  <variable variable_id="action" for_catalog="False" for_status="True" update_always="True">
   <description>Previous transition</description>
   <default>

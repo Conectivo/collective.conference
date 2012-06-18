@@ -20,11 +20,6 @@ from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from collective.conference import MessageFactory as _
 
-
-# Interface class; used to define content-type schema.
-
-from zope.schema.interfaces import IContextSourceBinder
-from zope.schema.vocabulary import SimpleVocabulary
 from Products.CMFCore.utils import getToolByName
 from Products.CMFDefault.utils import checkEmailAddress
 
@@ -34,7 +29,7 @@ def possibleRooms(context):
     conference = context.getConference()            
     return SimpleVocabulary.fromValues(conference.rooms)
 
-
+# Interface class; used to define content-type schema.
 
 class ISession(form.Schema, IImageScaleTraversable):
     """
@@ -43,8 +38,7 @@ class ISession(form.Schema, IImageScaleTraversable):
 
     form.widget(emails='plone.z3cform.textlines.TextLinesFieldWidget')
     emails = schema.List(title=_(u"E-mail addresses of speakers"), 
-        description=_(u"We will find speakers' profile in the registration ") +
-                    _(u"using these emails. One in each line"),
+        description=_(u"We will find speakers' profile in the registration using these emails. One in each line"),
         required=True,
         value_type=schema.TextLine()
     )
@@ -67,10 +61,7 @@ class ISession(form.Schema, IImageScaleTraversable):
     )
 
     attachment = NamedBlobFile(title=_(u"Attachment"),
-        description=_(u"Attach your talks document (slide, code, etc). ") + 
-                    _(u"If there are multiple files, include them in a zip ") + 
-                    _(u"By uploading the file here, you hereby agreed to ") + 
-                    _(u"grants us permission to redistribute this file"),
+        description=_(u"Attach your talks document (slide, code, etc). If there are multiple files, include them in a zip by uploading the file here, you hereby agreed to grants us permission to redistribute this file"),
         required=False
     )
 

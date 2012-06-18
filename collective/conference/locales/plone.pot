@@ -1,0 +1,84 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-06-18 20:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+#: ../profiles/default/workflows/conference_session_workflow/definition.xml
+msgid "Approve"
+msgstr ""
+
+#: ../profiles/default/workflows/conference_session_workflow/definition.xml
+msgid "Approve submission"
+msgstr ""
+
+#: ../profiles/default/workflows/conference_participant_workflow/definition.xml
+#: ../profiles/default/workflows/conference_session_workflow/definition.xml
+msgid "Conference Participant Workflow"
+msgstr ""
+
+#: ../profiles/default/workflows/conference_session_workflow/definition.xml
+msgid "Confirm submission"
+msgstr ""
+
+#: ../profiles/default/workflows/conference_participant_workflow/definition.xml
+msgid "Hide profile"
+msgstr ""
+
+#: ../profiles/default/workflows/conference_participant_workflow/definition.xml
+msgid "Pending"
+msgstr ""
+
+#: ../profiles/default/workflows/conference_participant_workflow/definition.xml
+msgid "Private"
+msgstr ""
+
+#: ../profiles/default/workflows/conference_participant_workflow/definition.xml
+msgid "Publish Profile"
+msgstr ""
+
+#: ../profiles/default/workflows/conference_participant_workflow/definition.xml
+msgid "Publish profile"
+msgstr ""
+
+#: ../profiles/default/workflows/conference_participant_workflow/definition.xml
+msgid "Published"
+msgstr ""
+
+#: ../profiles/default/workflows/conference_session_workflow/definition.xml
+msgid "Retract"
+msgstr ""
+
+#: ../profiles/default/workflows/conference_session_workflow/definition.xml
+msgid "Retract submission"
+msgstr ""
+
+#: ../profiles/default/workflows/conference_session_workflow/definition.xml
+msgid "Submitted, pending approval"
+msgstr ""
+
+#: ../profiles/default/workflows/conference_participant_workflow/definition.xml
+msgid "Submitted, pending review."
+msgstr ""
+
+#: ../profiles/default/workflows/conference_session_workflow/definition.xml
+msgid "Tentative"
+msgstr ""
+
+#: ../profiles/default/workflows/conference_participant_workflow/definition.xml
+msgid "Visible to everyone, non-editable."
+msgstr ""
+

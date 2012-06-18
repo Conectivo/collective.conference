@@ -37,75 +37,65 @@ class IParticipant(form.Schema, IImageScaleTraversable):
     # and add directives here as necessary.
     title = schema.TextLine(title=_(u"Full name"),
             required=True)
+    
     email = schema.TextLine(
         title=_(u"Email address"),
         required=True,
     )
-
+    
     description = schema.Text(
         title=_(u"Short Bio"),
-        description=(_(u"Tell us more about yourself")),
+        description=_(u"Tell us more about yourself"),
         required=False,
     )
-
+    
     phone = schema.TextLine(
         title=_(u"Phone number"),
         required=False
     )
-
-
-
+    
     organization = schema.TextLine(
         title=_(u"Organization / Company"),
         required=False,
     )
-
+    
     position = schema.TextLine(
         title=_(u"Position / Role in Organization"),
         required=False,
     )
-
+    
     country = schema.Choice(
         title=_(u"Country"),
         description=_(u"Where you are from?"),
         required=False,
         vocabulary="collective.conference.vocabulary.countries"
     )
-
-
-
+    
     is_vegetarian = schema.Bool(
         title=_(u"Vegetarian?"),
         required=False
     )
-
+    
     tshirt_size = schema.Choice(
         title=_(u"T-shirt size"),
         vocabulary="collective.conference.vocabulary.tshirtsize",
         required=False
     )
-
+    
     photo = NamedBlobImage(
         title=_(u"Photo"),
         description=_(u"Your photo or avatar. Recommended size is 150x195"),
         required=False
     )
-
+    
     form.fieldset('sponsorship',
             label=_(u"Funding"),
             fields=['need_sponsorship', 'roomshare', 'comment']
     )
-
+    
     need_sponsorship = schema.Bool(
             title=_(u"Need funding"),
-            description=_(u"Check this option if you need funding to attend, and <b>visit the ") + 
-                    _(u"<a href='https://fedorahosted.org/fudcon-planning/wiki/FundingRequest'>FUDCon ticket tracker</a> ") +
-                    _(u"to make a funding request</b>. ") +
-                    _(u"We have a limited budget and will work hard to fund as many people as possible. ") +
-                    _(u"We'll use these answers to help figure out budgeting for the event. ") +
-                    _(u"We are making arrangements for attendees from other geographic regions to encourage ") +
-                    _(u"specific initiatives such as future FUDCon events, but <b>preference may otherwise ") +
-                    _(u"be given to contributors in Asia Pacific.</b>"),
+            description=_(u"Check this option if you need funding to attend, and <b>visit the <a href='https://fedorahosted.org/fudcon-planning/wiki/FundingRequest'>FUDCon ticket tracker</a> to make a funding request</b>. We have a limited budget and will work hard to fund as many people as possible. We'll use these answers to help figure out budgeting for the event. We are making arrangements for attendees from other geographic regions to encourage specific initiatives such as future FUDCon events, but <b>preference may otherwise be given to contributors in Asia Pacific.</b>"),
             required=False
     )
 
@@ -116,9 +106,7 @@ class IParticipant(form.Schema, IImageScaleTraversable):
 
     comment = schema.Text(
         title=_(u"Comments"),
-        description=_(u"Fill in this field with things you need the organizers to know. ") + 
-                    _(u"If you are roomsharing and already have a roommate, ") + 
-                    _(u"please mention your roommate's name here"),
+        description=_(u"Fill in this field with things you need the organizers to know. If you are roomsharing and already have a roommate, please mention your roommate's name here"),
         required=False
     )
 
@@ -129,16 +117,11 @@ class IParticipant(form.Schema, IImageScaleTraversable):
         required=False
     )
 
-
-
-
 @form.validator(field=IParticipant['photo'])
 def maxPhotoSize(value):
     if value is not None:
         if value.getSize()/1024 > 512:
             raise schema.ValidationError(_(u"Please upload image smaller than 512KB"))
-
-
 
 @form.validator(field=IParticipant['email'])
 def emailValidator(value):
@@ -147,10 +130,10 @@ def emailValidator(value):
     except:
         raise Invalid(_(u"Invalid email address"))
 
+
 class Participant(dexterity.Item):
     grok.implements(IParticipant)
     grok.provides(IParticipant)
-
 
     def sessions(self):
         catalog = getToolByName(self, 'portal_catalog')
