@@ -1,15 +1,19 @@
-# -*- coding: utf-8 -*-
-
 from setuptools import setup, find_packages
 import os
 
 version = '1.0a3dev'
+description = 'Conference management'
+long_description = (
+    open('README.rst').read() + '\n' +
+    open(os.path.join('docs', 'INSTALL.rst')).read() + '\n' +
+    open(os.path.join('docs', 'HISTORY.rst')).read() + '\n' +
+    open(os.path.join('docs', 'INSTALL.rst')).read()
+)
 
 setup(name='collective.conference',
       version=version,
-      description="Conference management",
-      long_description=open("README.txt").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      description=description,
+      long_description=long_description,
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
@@ -69,5 +73,4 @@ setup(name='collective.conference',
       # your package.
       setup_requires=["PasteScript"],
       paster_plugins = ["ZopeSkel"],
-
       )

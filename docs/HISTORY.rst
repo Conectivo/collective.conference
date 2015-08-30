@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-1.0a3dev
--------------------
+1.0a3dev (Unreleased)
+---------------------
 
  * Added Spanish translation [macagua]
  * Added i18n support [macagua]
