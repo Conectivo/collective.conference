@@ -1,14 +1,22 @@
-from five import grok
+# -*- coding: utf-8 -*-
+
+from Products.AdvancedQuery import And
+from Products.AdvancedQuery import Eq
+# from Products.AdvancedQuery import Ge
+from Products.AdvancedQuery import Generic
+# from Products.AdvancedQuery import Le
+from Products.CMFCore.utils import getToolByName
+from collective.conference import MessageFactory as _
 from collective.conference.conference import IConference
 from collective.conference.session import ISession
-from collective.conference import MessageFactory as _
-from Products.CMFCore.utils import getToolByName
-import json
-from datetime import datetime, timedelta
-from Products.AdvancedQuery import Le, Ge, Generic, And, Eq
+from datetime import datetime
+from datetime import timedelta
+from five import grok
 from zope.security import checkPermission
+import json
 
 grok.templatedir('templates')
+
 
 class AgendaView(grok.View):
     grok.context(IConference)
@@ -16,17 +24,17 @@ class AgendaView(grok.View):
     grok.template('agenda')
     grok.require('zope2.View')
 
-    title = _(u"Agenda")
+    title = _(u'Agenda')
 
     def days(self):
         result = []
-        delta = self.context.endDate-self.context.startDate
+        delta = self.context.endDate - self.context.startDate
         for i in range(delta.days if delta.seconds == 0 else delta.days + 1):
             result.append({
-                'id':i,
-                'year':self.context.startDate.year,
-                'month':self.context.startDate.month,
-                'date':self.context.startDate.day + i
+                'id': i,
+                'year': self.context.startDate.year,
+                'month': self.context.startDate.month,
+                'date': self.context.startDate.day + i
             })
         return result
 
@@ -42,17 +50,14 @@ class AgendaView(grok.View):
                         month: %s,
                         date: %s
                     }, opts))
-                """ % (
-                    day['id'],
-                    idx, 
-                    '%s/events.json?room=%s' % (
-                        self.context.absolute_url(),
-                        room
-                    ),
-                    day['year'],
-                    day['month'] - 1,
-                    day['date']
-                    )
+                """ % (day['id'],
+                       idx,
+                       '%s/events.json?room=%s' % (
+                           self.context.absolute_url(),
+                           room),
+                       day['year'],
+                       day['month'] - 1,
+                       day['date'])
 
         editable = checkPermission('cmf.ModifyPortalContent', self.context)
         result = """
@@ -89,25 +94,26 @@ class AgendaView(grok.View):
 
         return result
 
+
 class EventJson(grok.View):
     grok.context(IConference)
     grok.name('events.json')
     grok.require('zope2.View')
 
     def render(self):
-        self.request.response.setHeader('Content-Type','text/json')
+        self.request.response.setHeader('Content-Type', 'text/json')
         start = int(self.request.get('start', 0))
         end = int(self.request.get('end', 0))
         room = self.request.get('room', '')
         result = []
         for event in self.events(room,
-                                datetime.fromtimestamp(start),
-                                datetime.fromtimestamp(end)):
+                                 datetime.fromtimestamp(start),
+                                 datetime.fromtimestamp(end)):
             result.append({
-                'id':event.id,
-                'title':event.title,
+                'id': event.id,
+                'title': event.title,
                 'start': event.startDate.isoformat(),
-                'end':event.endDate.isoformat(),
+                'end': event.endDate.isoformat(),
                 'allDay': False,
                 'url': event.absolute_url(),
                 'color': '#%s' % getattr(event, 'color', '3366CC')[:6],
@@ -121,8 +127,11 @@ class EventJson(grok.View):
         queries = [
             Eq('portal_type', 'collective.conference.session'),
             Eq('conference_rooms', room),
-            Generic('path', {'query': '/'.join(self.context.getPhysicalPath()),
-                'depth':2})
+            Generic(
+                'path',
+                {'query': '/'.join(self.context.getPhysicalPath()),
+                 'depth': 2}
+            )
         ]
         result = []
         for brain in catalog.evalAdvancedQuery(And(*queries)):
@@ -135,7 +144,7 @@ class Update(grok.View):
     grok.name('updateStartEnd')
 
     def render(self):
-        self.request.response.setHeader('Content-Type','text/json')
+        self.request.response.setHeader('Content-Type', 'text/json')
         dayDelta = int(self.request.get('dayDelta', 0))
         minuteDelta = int(self.request.get('minuteDelta', 0))
         operation = self.request.get('operation', '')
@@ -149,4 +158,3 @@ class Update(grok.View):
             self.context.startDate = self.context.startDate + delta
             self.context.endDate = self.context.endDate + delta
         return ''
-

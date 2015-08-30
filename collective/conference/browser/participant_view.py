@@ -1,7 +1,10 @@
-from five import grok
+# -*- coding: utf-8 -*-
+
 from collective.conference.participant import IParticipant
+from five import grok
 
 grok.templatedir('templates')
+
 
 class ParticipantView(grok.View):
     grok.context(IParticipant)

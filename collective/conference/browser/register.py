@@ -1,34 +1,40 @@
-from five import grok
-from collective.conference.participant import IParticipant, Participant
-from collective.conference.conference import IConference
+# -*- coding: utf-8 -*-
+
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import _createObjectByType
+from Products.statusmessages.interfaces import IStatusMessage
+
 from collective.conference import MessageFactory as _
+from collective.conference.conference import IConference
+from collective.conference.participant import IParticipant
+# from collective.conference.participant import Participant
+from five import grok
+# from plone.dexterity.utils import createContentInContainer
+from plone.directives import form
 from plone.formwidget.captcha import CaptchaFieldWidget
 from plone.formwidget.captcha.validator import CaptchaValidator
-from plone.dexterity.utils import createContentInContainer
-from plone.directives import form
+# from z3c.form.error import ErrorViewSnippet
+from zope import schema
 from zope.component.hooks import getSite
 from zope.globalrequest import getRequest
-from zope import schema
-from z3c.form.error import ErrorViewSnippet
 
-from Products.CMFPlone.utils import _createObjectByType
-from Products.CMFCore.utils import getToolByName
-
-from Products.statusmessages.interfaces import IStatusMessage
 
 class IRegistrationForm(IParticipant):
 
     publishinfo = schema.Bool(
-        title=_(u"Show me in attendee list"),
-        description=_(u"Check this if you wish your name and contact info to be published in our attendee listing"),
+        title=_(u'Show me in attendee list'),
+        description=_(u'Check this if you wish your name and contact info to be published in our attendee listing'),
         required=False
     )
 
     form.widget(captcha=CaptchaFieldWidget)
-    captcha = schema.TextLine(title=_(u""),
-                            required=False)
+    captcha = schema.TextLine(
+        title=_(u''),
+        required=False
+    )
 
     form.omitted('color')
+
 
 @form.validator(field=IRegistrationForm['captcha'])
 def validateCaptca(value):
@@ -38,24 +44,25 @@ def validateCaptca(value):
         return
 
     captcha = CaptchaValidator(site, request, None,
-            IRegistrationForm['captcha'], None)
+                               IRegistrationForm['captcha'], None)
     captcha.validate(value)
 
 
 class RegistrationForm(form.SchemaAddForm):
     grok.name('register')
     grok.context(IConference)
-    grok.require("zope.Public")
+    grok.require('zope.Public')
     schema = IRegistrationForm
-    label = _(u"Register for this event")
-
+    label = _(u'Register for this event')
 
     def create(self, data):
         inc = getattr(self.context, 'registrant_increment', 0) + 1
         data['id'] = 'participant-%s' % inc
         self.context.registrant_increment = inc
-        obj = _createObjectByType("collective.conference.participant", 
-                self.context, data['id'])
+        obj = _createObjectByType(
+            'collective.conference.participant',
+            self.context, data['id']
+        )
 
         publishinfo = data['publishinfo']
         del data['captcha']
@@ -70,7 +77,7 @@ class RegistrationForm(form.SchemaAddForm):
             portal_workflow.doActionFor(obj, 'anon_hide')
         obj.reindexObject()
         IStatusMessage(self.request).addStatusMessage(
-            _(u"Thank you. You are now registered.")
+            _(u'Thank you. You are now registered.')
         )
         return obj
 

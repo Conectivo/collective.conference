@@ -1,11 +1,14 @@
-from five import grok
-from collective.conference.session import ISession
-from collective.conference.conference import IConference
+# -*- coding: utf-8 -*-
+
 from Acquisition import aq_parent
+# from Products.CMFCore.utils import getToolByName
+from collective.conference.conference import IConference
+from collective.conference.session import ISession
+from five import grok
 from zope.component.hooks import getSite
-from Products.CMFCore.utils import getToolByName
 
 grok.templatedir('templates')
+
 
 class SessionView(grok.View):
     grok.context(ISession)

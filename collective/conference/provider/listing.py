@@ -1,13 +1,17 @@
-from zope import schema
-from zope.interface import Interface, alsoProvides
-from zope.schema.interfaces import IField
-from z3c.table.table import SequenceTable
+# -*- coding: utf-8 -*-
+
+from five import grok
+from plone.autoform.interfaces import OMITTED_KEY
 from z3c.table.column import Column
 from z3c.table.interfaces import IColumn
+from z3c.table.table import SequenceTable
 from zope import component as zca
-from five import grok
-from zope.globalrequest import getRequest
-from plone.autoform.interfaces import OMITTED_KEY
+from zope import schema
+# from zope.globalrequest import getRequest
+# from zope.interface import Interface
+# from zope.interface import alsoProvides
+from zope.schema.interfaces import IField
+
 
 class SchemaTable(SequenceTable):
 
@@ -31,6 +35,7 @@ class SchemaTable(SequenceTable):
             cols.append(column)
         return cols
 
+
 class IndexColumn(Column):
     grok.provides(IColumn)
 
@@ -38,6 +43,7 @@ class IndexColumn(Column):
 
     def renderCell(self, item):
         return '%03d' % (self.table.values.index(item) + 1)
+
 
 class FieldColumn(grok.MultiAdapter, Column):
     grok.provides(IColumn)
@@ -60,6 +66,7 @@ class FieldColumn(grok.MultiAdapter, Column):
             return '<a href="%s">%s</a>' % (item.absolute_url(), result)
         return result
 
+
 class TableListingProvider(object):
 
     def __init__(self, request, schema, objs):
@@ -68,9 +75,12 @@ class TableListingProvider(object):
         self.objs = objs
 
     def render(self):
-        table = SchemaTable(self.objs, self.request, self.schema, 
-            { 'table': 'table table-condensed table-striped'}
+        table = SchemaTable(
+            self.objs,
+            self.request,
+            self.schema,
+            {'table': 'table table-condensed table-striped'}
         )
-        table.startBatchingAt = 1000 # disable batching for now
+        table.startBatchingAt = 1000  # disable batching for now
         table.update()
         return table.render()

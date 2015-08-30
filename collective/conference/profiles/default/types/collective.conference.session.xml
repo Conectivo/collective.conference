@@ -9,12 +9,12 @@
   <property name="icon_expr">string:${portal_url}/event_icon.png</property>
   <property name="factory">collective.conference.session</property>
   <property name="global_allow">False</property>
-  <property name="filter_content_types">False</property>  
+  <property name="filter_content_types">False</property>
   <property name="allowed_content_types" />
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">collective.conference.session.ISession</property> 
+  <property name="schema">collective.conference.session.ISession</property>
   <property name="klass">collective.conference.session.Session</property>
 
   <property name="behaviors">

@@ -14,7 +14,7 @@
   <!-- Grok the package to initialise schema interfaces and content classes -->
   <include package="collective.dexteritytextindexer"/>
   <grok:grok package="." />
-  
+
   <i18n:registerTranslations directory="locales" />
 
   <!-- Register an extension profile to make the product installable
@@ -25,8 +25,8 @@
       directory="profiles/default"
       description="Extension profile for Conference management"
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      i18n:attributes="title label_gs_default; 
-                       description help_gs_default;" 
+      i18n:attributes="title label_gs_default;
+                       description help_gs_default;"
       />
 
   <!-- -*- extra stuff goes here -*- -->

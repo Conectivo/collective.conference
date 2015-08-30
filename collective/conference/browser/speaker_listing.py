@@ -1,9 +1,12 @@
-from five import grok
-from collective.conference.conference import IConference
-from collective.conference import MessageFactory as _
+# -*- coding: utf-8 -*-
+
 from Products.CMFCore.utils import getToolByName
+from collective.conference import MessageFactory as _
+from collective.conference.conference import IConference
+from five import grok
 
 grok.templatedir('templates')
+
 
 class SpeakerListView(grok.View):
     grok.context(IConference)
@@ -11,7 +14,7 @@ class SpeakerListView(grok.View):
     grok.name('speakers')
     grok.require('zope2.View')
 
-    title = _(u"Speakers")
+    title = _(u'Speakers')
 
     def items(self):
         catalog = getToolByName(self.context, 'portal_catalog')
@@ -21,7 +24,7 @@ class SpeakerListView(grok.View):
                 'query': '/'.join(self.context.getPhysicalPath()),
                 'depth': 2
             },
-            'sort_on':'sortable_title'
+            'sort_on': 'sortable_title'
         })
         return [i.getObject() for i in brains if self._has_session(i)]
 

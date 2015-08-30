@@ -1,8 +1,11 @@
+# -*- coding: utf-8 -*-
+
 from five import grok
 from plone.app.layout.viewlets.interfaces import IAboveContent
 from zope.interface import Interface
 
 grok.templatedir('templates')
+
 
 class NavigationViewlet(grok.Viewlet):
     grok.context(Interface)
