@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from setuptools import setup, find_packages
 import os
 
@@ -48,6 +50,15 @@ setup(name='collective.conference',
           'collective.z3cform.colorpicker'
           # -*- Extra requirements: -*-
       ],
+      extras_require={
+          'test': [
+              'plone.app.robotframework',
+              'plone.app.testing [robot] >=4.2.2',
+              'plone.browserlayer',
+              'plone.testing',
+              'robotsuite',
+          ],
+      },
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]
